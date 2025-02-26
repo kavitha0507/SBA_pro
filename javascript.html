@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahul's Chess Profile</title>
+
+  <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+</head>
+<body>
+
+  <header>
+    <h1>Rahul's Chess Profile</h1>
+  </header>
+
+  <div class="content">
+    <h2>Available Chess Lessons</h2>
+    <ul id="lessonList"></ul> <!-- Will be populated dynamically -->
+
+    <h3>Sign Up for a Lesson</h3>
+    <form id="lessonForm">
+      <label for="lessonName">Enter Lesson Name:</label>
+      <input type="text" id="lessonName" name="lessonName" required>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="message"></div> <!-- Message will be displayed here -->
+  </div>
+
+  <footer>
+    <p>Contact us: rahul@example.com</p>
+  </footer>
+
+  <!-- External JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>

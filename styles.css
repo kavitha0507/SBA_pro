@@ -1,0 +1,33 @@
+/* External CSS File */
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f7; /* Light blue-grey background */
+    color: #333333; /* Dark text for readability */
+    background-image: url("chess1.jpg"); /* Path to your image */
+        background-size: cover; /* Ensures the image covers the full screen */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents tiling */
+        background-attachment: fixed; /* Keeps the image fixed while scrolling */
+  }
+  
+  /* Button Hover Effect */
+  .btn-submit:hover {
+    background-color: #45a049; /* Darker green on hover */
+    cursor: pointer;
+  }
+  
+  /* Using a Pseudo-Class for Links */
+  a:hover {
+    color: #3a7d44; /* Green hover effect */
+    text-decoration: underline;
+   
+        
+    }
+    footer {
+        color: rgb(244, 241, 241); /* Change to any color you want */
+      }
+    
+  
+  
