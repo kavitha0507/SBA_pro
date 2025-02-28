@@ -1,1 +1,98 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Rahul's Chess Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Rahul's Chess Profile</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Current Ranking</h2>
+            <p>Rahul's current chess ranking is 5th in his local chess club.</p>
+        </section>
+
+        <section>
+            <h2>Games Played</h2>
+            <table>
+                <tr>
+                    <th>Game</th>
+                    <th>Opponent</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>Game 1</td>
+                    <td>John</td>
+                    <td>Win</td>
+                </tr>
+                <tr>
+                    <td>Game 2</td>
+                    <td>Mike</td>
+                    <td>Loss</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Submit a New Game</h2>
+            <form id="submit-game-form" onsubmit="handleSubmit(event)">
+                <label for="game-name">Game Name:</label>
+                <input type="text" id="game-name" name="game-name" required pattern="^[a-zA-Z0-9 ]{5,50}$" title="Game name should be 5-50 characters and may include letters, numbers, and spaces.">
+
+                <label for="opponent">Opponent:</label>
+                <input type="text" id="opponent" name="opponent" required pattern="^[a-zA-Z ]{3,30}$" title="Opponent name must be 3-30 characters long and contain only letters.">
+
+                <label for="result">Result:</label>
+                <select id="result" name="result">
+                    <option value="win">Win</option>
+                    <option value="loss">Loss</option>
+                    <option value="draw">Draw</option>
+                </select>
+
+                <button type="submit">Submit Game</button>
+            </form>
+            
+            <!-- Result display section -->
+            <div id="submit-status"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rahul's Chess Website</p>
+    </footer>
+    
+    <script>
+        // Handle form submission (Client-side simulation)
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent form submission to the server
+
+            // Get form input values
+            const gameName = document.getElementById("game-name").value;
+            const opponent = document.getElementById("opponent").value;
+            const result = document.getElementById("result").value;
+
+            // Display the submitted data in the result section
+            const statusDiv = document.getElementById("submit-status");
+
+            // Simulate form submission and display success message
+            statusDiv.innerHTML = `
+                <p style="color: green;">Game submitted successfully!</p>
+                <p><strong>Game Name:</strong> ${gameName}</p>
+                <p><strong>Opponent's Name:</strong> ${opponent}</p>
+                <p><strong>Result:</strong> ${result}</p>
+            `;
+
+            // Optionally, reset the form after submission
+            document.getElementById("submit-game-form").reset();
+        }
+    </script>
+</body>
+</html>
+
