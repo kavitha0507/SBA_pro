@@ -1,1 +1,137 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Chess - Rahul's Chess</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Flexbox container to align text and image */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .learning-resources {
+      flex: 1; /* Takes up available space */
+    }
+
+    .learning-image {
+      flex: 0.5; /* Takes less space */
+      text-align: center;
+    }
+
+    .learning-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Styling for the dropdown and content display */
+    .dropdown-content {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>RAHUL's Chess</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="game.html">Play Game</a></li>
+        <li><a href="learn.html">Learn Chess</a></li>
+        <!-- Dropdown Menu for Chess Resources -->
+        <li>
+          <select id="resourceDropdown">
+            <option value="">Select a Topic</option>
+            <option value="basic-rules">Basic Rules</option>
+            <option value="chess-terminology">Chess Terminology</option>
+            <option value="strategies">Strategies</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Left Section: Learning Resources -->
+    <section class="learning-resources">
+      <h2>Chess Learning Resources</h2>
+      
+      <!-- Dropdown Content Display -->
+      <div id="dropdownContent" class="dropdown-content">
+        <h3 id="dropdownTitle"></h3>
+        <p id="dropdownText"></p>
+      </div>
+      
+      <!-- Learn More Links -->
+      <article>
+        <h3>Learn More from Online Platforms</h3>
+        <p>Explore online chess learning resources:</p>
+        <ul>
+            <li><a href="https://www.chess.com/lessons" target="_blank">Chess.com Lessons</a></li>
+            <li><a href="https://lichess.org/learn" target="_blank">Lichess Learning</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Right Section: Chess Image -->
+    <div class="learning-image">
+      <img src="chess3.jpg" alt="Learning Chess" height="800" width="800">
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Rahul Chess</p>
+  </footer>
+
+  <script>
+    // Dropdown change event
+    document.getElementById("resourceDropdown").addEventListener("change", function() {
+      var selectedValue = this.value;
+      var contentDiv = document.getElementById("dropdownContent");
+      var title = document.getElementById("dropdownTitle");
+      var text = document.getElementById("dropdownText");
+
+      // Define content for each option
+      var content = {
+        "basic-rules": {
+          title: "Basic Chess Rules",
+          text: "Chess is played on an 8x8 board with 64 squares. Each player starts with 16 pieces. The goal is to checkmate the opponent's king."
+        },
+        "chess-terminology": {
+          title: "Common Chess Terminology",
+          text: "Check: When a king is under attack. Checkmate: When a king has no escape. Stalemate: A draw when the player to move has no legal moves."
+        },
+        "strategies": {
+          title: "Basic Chess Strategies",
+          text: "Control the center of the board, develop your pieces early, and protect your king by castling. Always think ahead before making a move."
+        }
+      };
+
+      // Update content based on selection
+      if (selectedValue && content[selectedValue]) {
+        title.innerText = content[selectedValue].title;
+        text.innerText = content[selectedValue].text;
+        contentDiv.style.display = "block";
+      } else {
+        contentDiv.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
